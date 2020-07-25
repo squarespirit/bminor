@@ -1,1 +1,3 @@
 bazel-*
+*.o
+scanner/scanner_main
