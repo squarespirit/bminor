@@ -34,6 +34,7 @@ typedef enum {
     TOKEN_RPAREN,
     TOKEN_LBRACE,
     TOKEN_RBRACE,
+    TOKEN_SEMI,
     
     TOKEN_INCREMENT,
     TOKEN_DECREMENT,

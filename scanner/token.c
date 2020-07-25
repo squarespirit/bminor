@@ -35,6 +35,7 @@ char *token_names[] = {
     "rparen",
     "lbrace",
     "rbrace",
+    "semi",
     
     "increment",
     "decrement",

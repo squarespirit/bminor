@@ -1,0 +1,24 @@
+ident	puts
+colon	:
+function	function
+void	void
+lparen	(
+ident	s
+colon	:
+string	string
+rparen	)
+semi	;
+ident	main
+colon	:
+function	function
+integer	integer
+lparen	(
+rparen	)
+assign	=
+lbrace	{
+ident	puts
+lparen	(
+stringlit	"hello world"
+rparen	)
+semi	;
+rbrace	}

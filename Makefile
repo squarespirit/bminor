@@ -2,7 +2,11 @@ CC=gcc
 CFLAGS=-Wall -I.
 BINS=scanner/scanner_main
 
+.PHONY: all clean test
+
 all: $(BINS)
+
+test: scantest
 
 scantest: scanner/scanner_main
 	scanner/scantest.sh	
@@ -17,7 +21,6 @@ scanner/scanner.o: scanner/scanner.c
 scanner/scanner.c: scanner/scanner.flex
 	flex -o $@ $^
 
-.PHONY: clean
 clean:
 	find . -type f -name '*.o' -delete
 	rm -f $(BINS)
