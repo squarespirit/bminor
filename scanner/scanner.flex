@@ -2,6 +2,9 @@
 #include "token.h"
 %}
 
+escapeseq \\.
+nonbackslash [^\\]
+
 %%
 
 (" "|\t|\n) /* skip whitespace */
@@ -9,7 +12,7 @@
     /* actually "/*"((("*"[^/])?)|[^*])*"* /"?   <- extra space inserted */
 "/*"("*"[^/]|[^*])*"*/" { return TOKEN_COMMENT; }
 "//".* { return TOKEN_COMMENT; }
-\+ { return TOKEN_ADD; }
+
 array { return TOKEN_ARRAY; }
 boolean { return TOKEN_BOOLEAN; }
 char { return TOKEN_CHAR; }
@@ -29,7 +32,10 @@ while { return TOKEN_WHILE; }
 [_a-zA-Z][_0-9a-zA-Z] { return TOKEN_IDENT; }
 -?[0-9]+ { return TOKEN_INT_LIT; }
 '.' { return TOKEN_CHAR_LIT; }
-""
+\"({nonbackslash}|{escapeseq})*\" { return TOKEN_STRING_LIT; }
+
+
+\+ { return TOKEN_ADD; }
 
 %%
 

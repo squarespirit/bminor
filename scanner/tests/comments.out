@@ -1,0 +1,6 @@
+comment	// abc
+comment	/* multi
+*/
+comment	/* ** / * /*/
+comment	// */
+comment	/* // */
