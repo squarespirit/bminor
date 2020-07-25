@@ -5,10 +5,8 @@
 %%
 
 (" "|\t|\n) /* skip whitespace */
-""
 
-// actually "/*"((("*"[^/])?)|[^*])*"*/"?
-
+    /* actually "/*"((("*"[^/])?)|[^*])*"* /"?   <- extra space inserted */
 "/*"("*"[^/]|[^*])*"*/" { return TOKEN_COMMENT; }
 "//".* { return TOKEN_COMMENT; }
 \+ { return TOKEN_ADD; }

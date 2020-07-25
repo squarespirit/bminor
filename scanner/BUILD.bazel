@@ -1,8 +1,19 @@
+genrule(
+    name = "scanner_code",
+    srcs = ["scanner.flex", "token.h"],
+    outs = ["scanner.c"],
+    cmd = "flex -o $(OUTS) $(location scanner.flex)"
+)
+
 cc_binary(
-    name = "scanner_printer",
+    name = "scanner_main",
     srcs = [
         "token.h",
         "token.c",
+        "scanner.c",
         "scanner_main.c",
     ],
+    deps = [
+        "//util:errors",
+    ]
 )

@@ -2,6 +2,8 @@
 
 #include <stdlib.h>
 
+#include "util/errors.h"
+
 char *token_names[] = {
     "EOF",
     "comment",
@@ -57,8 +59,7 @@ char *token_names[] = {
 
 char *token_str(token_t t) {
     if (t < TOKEN_EOF || t > TOKEN_ERROR) {
-        printf("Token %d out of range\n", t);
-        exit(1);
+        fatal("Token %d out of range\n", t);
     }
     return token_names[t];
 }

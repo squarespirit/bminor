@@ -6,8 +6,10 @@ extern int yylex();
 extern char *yytext;
 
 int main(int argc, char **argv) {
-    if (argc != 3) {
-        printf("Usage: %s [input file] [output file]")
+    if (argc != 2) {
+        printf("Usage: %s [input file]\n", argv[0]);
+        printf("Print tokens to stdout\n");
+        return 1;
     }
     yyin = fopen(argv[1],"r");
     if(!yyin) {
@@ -17,6 +19,6 @@ int main(int argc, char **argv) {
     while(1) {
         token_t t = yylex();
         if(t==TOKEN_EOF) break;
-        printf("token: %d (%s) text: %s\n", t, token_name(t), yytext);
+        printf("%s\t%s\n", token_str(t), yytext);
     }
 }
